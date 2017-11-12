@@ -51,15 +51,17 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     self.firstView = [[FirstWaveView alloc]initWithFrame:CGRectMake(0, -20, self.view.bounds.size.width, 300)];
-    self.firstView.alpha = 0.6;
-    [self.view addSubview:self.firstView];
+    self.firstView.alpha = 0.7;
+//    [self.view addSubview:self.firstView];
     
     self.secondView = [[SecondWaveView alloc]initWithFrame:CGRectMake(0, -20, self.view.bounds.size.width, 300)];
-    self.secondView.alpha = 0.6;
+    self.secondView.alpha = 0.7;
     [self.view addSubview:self.secondView];
     
     //定时  振荡
     self.timer = [NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(addShakeAnimation) userInfo:nil repeats:YES];
+    
+    [self addBackGesture];
 }
 
 ///振荡
@@ -78,6 +80,20 @@
         } completion:nil];
     }];
 }
+
+- (void)addBackGesture {
+    
+    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeGesture:)];
+    swipe.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:swipe];
+    
+}
+
+- (void)swipeGesture:(UISwipeGestureRecognizer *)swipe {
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 -(void)dealloc {
     

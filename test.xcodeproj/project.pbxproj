@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		048341A2118FDE41CA716457 /* libPods-test.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D13FEEA66688B08EC118FB /* libPods-test.a */; };
+		39A7DB821FB6A40F000B6E74 /* PetalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A7DB811FB6A40F000B6E74 /* PetalViewController.m */; };
 		893427121F53E44C00474336 /* WKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 893427111F53E44C00474336 /* WKViewController.m */; };
 		895E92421F4EAE50003D2C0D /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 895E92411F4EAE50003D2C0D /* WebViewController.m */; };
 		895E92441F4EAEDF003D2C0D /* demo.html in Resources */ = {isa = PBXBuildFile; fileRef = 895E92431F4EAEDF003D2C0D /* demo.html */; };
@@ -30,6 +31,8 @@
 /* Begin PBXFileReference section */
 		01D13FEEA66688B08EC118FB /* libPods-test.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-test.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B960D1604EBD9B6F14ADBA8 /* Pods-test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test.release.xcconfig"; path = "Pods/Target Support Files/Pods-test/Pods-test.release.xcconfig"; sourceTree = "<group>"; };
+		39A7DB801FB6A40F000B6E74 /* PetalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PetalViewController.h; sourceTree = "<group>"; };
+		39A7DB811FB6A40F000B6E74 /* PetalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PetalViewController.m; sourceTree = "<group>"; };
 		893427101F53E44C00474336 /* WKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKViewController.h; sourceTree = "<group>"; };
 		893427111F53E44C00474336 /* WKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKViewController.m; sourceTree = "<group>"; };
 		895E92401F4EAE50003D2C0D /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
@@ -119,6 +122,8 @@
 				89A6422D1F4A786C008BFD1C /* AppDelegate.m */,
 				89A6422F1F4A786C008BFD1C /* ViewController.h */,
 				89A642301F4A786C008BFD1C /* ViewController.m */,
+				39A7DB801FB6A40F000B6E74 /* PetalViewController.h */,
+				39A7DB811FB6A40F000B6E74 /* PetalViewController.m */,
 				8972E50A1FB443590017FCA1 /* WaveLayerController.h */,
 				8972E50B1FB443590017FCA1 /* WaveLayerController.m */,
 				895E92401F4EAE50003D2C0D /* WebViewController.h */,
@@ -291,6 +296,7 @@
 				89D3953C1FB538DE00B85C7C /* FirstWaveView.m in Sources */,
 				89D3953F1FB554F800B85C7C /* SecondWaveView.m in Sources */,
 				893427121F53E44C00474336 /* WKViewController.m in Sources */,
+				39A7DB821FB6A40F000B6E74 /* PetalViewController.m in Sources */,
 				8972E50C1FB443590017FCA1 /* WaveLayerController.m in Sources */,
 				897D0F781FAC1845003D5C3C /* AniPushViewController.m in Sources */,
 				897D0F7E1FAC6023003D5C3C /* UIView+anchorPoint.m in Sources */,

@@ -55,11 +55,11 @@
     
     _waveLayer = [CAShapeLayer layer];
     _waveLayer.frame = CGRectMake(0, 0, width, 300);
-    _waveLayer.fillColor = [UIColor colorWithRed:72/255.0 green:227/255.0 blue:126/255.0 alpha:1].CGColor;
+    _waveLayer.fillColor = [UIColor colorWithRed:104/255.0 green:176/255.0 blue:255/255.0 alpha:1].CGColor;
     [self.layer addSublayer:_waveLayer];
     
-    waveA = 10;
-    waveW = 0.025f;
+    waveA = 9;
+    waveW = 0.028f;
     
     //开始 CADisplayLink
     self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(addWaveLayer)];

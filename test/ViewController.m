@@ -10,12 +10,18 @@
 #import "WebViewController.h"
 #import "WKViewController.h"
 #import "AniViewController.h"
-#import "MyView.h"
+#import "PetalViewController.h"
 #import "WaveLayerController.h"
 
-@interface ViewController ()
+@interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) CALayer *petalLayer;
+
+@property (nonatomic, strong) UITableView *tableView;
+
+@property (nonatomic, strong) NSArray *nameArray;
+
+@property (nonatomic, strong) NSArray *vcArray;
 
 @end
 
@@ -24,19 +30,35 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    MyView *v = [[MyView alloc]initWithFrame:self.view.bounds];
+    [self.view addSubview:self.tableView];
     
-    v.backgroundColor = [UIColor whiteColor];
+    self.nameArray = @[@"花瓣掉落",@"立体旋转", @"波浪", @"UIWebView", @"WKWebView"];
+    self.vcArray = @[@"PetalViewController", @"AniViewController", @"WaveLayerController", @"WebViewController", @"WKViewController"];
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    self.view.backgroundColor = [UIColor blackColor];
-//
-//    [self.view addSubview:v];
-//
-    [self.view.layer addSublayer:self.petalLayer];
+    return self.nameArray.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@""];
     
+    cell.textLabel.text = self.nameArray[indexPath.row];
     
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSString *vcString = self.vcArray[indexPath.row];
+    
+    Class cls = NSClassFromString(vcString);
+    
+    [self.navigationController pushViewController:[[cls alloc]init] animated:YES];
 }
 
 // UIWebView
@@ -70,104 +92,17 @@
 }
 
 
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+-(UITableView *)tableView {
     
-    [self animationGroup:[[touches anyObject] locationInView:self.view]];
-    
-}
-
-
-/**
- 掉落的动画
-
- */
-- (CAKeyframeAnimation *)move:(CGPoint)endPoint{
-    
-    CAKeyframeAnimation *keyFrame = [CAKeyframeAnimation animationWithKeyPath:@"position"];
-    UIBezierPath *path = [UIBezierPath bezierPath];
-    //设置起始点
-    [path moveToPoint:self.petalLayer.position];
-    //画曲线的方法addCurveToPoint:终点 controlPoint1:<#(CGPoint)#> controlPoint2:<#(CGPoint)#>
-    [path addCurveToPoint:endPoint controlPoint1:CGPointMake(50, 150) controlPoint2:CGPointMake(300, 250)];
-    keyFrame.path = path.CGPath;
-    //节奏动画不是匀速 kCAAnimationPaced
-    keyFrame.calculationMode = kCAAnimationCubicPaced;
-    
-    return keyFrame;
-}
-
-
-/**
- 旋转
-
- */
-- (CABasicAnimation *)rotation {
-    
-    CABasicAnimation *ani = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-    
-    ani.fromValue = @(M_PI_4);
-    
-    ani.toValue = @(2 * M_PI);
-    
-    ani.repeatCount = MAXFLOAT;
-    
-    return ani;
-}
-
-
-/**
- 变大
-
-*/
-- (CABasicAnimation *)moveToBig {
-    
-    CABasicAnimation *ani = [CABasicAnimation animationWithKeyPath:@"bounds"];
-    
-    ani.fromValue = [NSValue valueWithCGRect:self.petalLayer.bounds];
-    
-    ani.toValue = [NSValue valueWithCGRect:CGRectMake(0, 0, self.petalLayer.bounds.size.width * 1.3, self.petalLayer.bounds.size.height * 1.3)];
-    
-    return ani;
-}
-
-
-/**
- 动画数组
-
- */
-- (void)animationGroup:(CGPoint)endPoint {
-    
-    CAAnimationGroup *group = [CAAnimationGroup animation];
-    
-    group.animations = @[[self move:endPoint], [self rotation], [self moveToBig]];
-    
-    group.duration = 3;
-    
-    group.removedOnCompletion = NO;
-    
-    group.fillMode = kCAFillModeBoth;
-    
-    //添加到 花瓣layer
-    [self.petalLayer addAnimation:group forKey:@""];
-}
-
-- (CALayer *)petalLayer {
-    
-    if (nil == _petalLayer) {
+    if (nil == _tableView) {
         
-        _petalLayer = [CALayer layer];
-        
-        _petalLayer.position = CGPointMake(self.view.center.x, 50);
-        
-        UIImage *img = [UIImage imageNamed:@"petal"];
-        
-        _petalLayer.bounds =  CGRectMake(0, 0, img.size.width, img.size.height);
-        
-        _petalLayer.contents = (id)img.CGImage;
+        _tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
     }
-    return _petalLayer;
+    return _tableView;
 }
+
 
 @end
 
