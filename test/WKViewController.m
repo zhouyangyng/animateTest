@@ -9,7 +9,7 @@
 #import "WKViewController.h"
 #import <WebKit/WebKit.h>
 #import <WKWebViewJavascriptBridge.h>
-
+#import <JavaScriptCore/JavaScriptCore.h>
 
 @interface WKViewController ()<WKUIDelegate, WKNavigationDelegate>
 
@@ -18,6 +18,8 @@
 @property (nonatomic, strong) UIButton *jsButton;
 
 @property WKWebViewJavascriptBridge *webViewBridge;
+
+@property (nonatomic, strong) JSContext *context;
 
 @end
 
@@ -28,16 +30,16 @@
     
     [self initWKWebView];
     
-    [self.view addSubview:self.jsButton];
+//    [self.view addSubview:self.jsButton];
     
     //加载html
     NSURL *path = [[NSBundle mainBundle] URLForResource:@"demo.html" withExtension:nil];
 
-    [self.webView loadRequest:[NSURLRequest requestWithURL:path]];
+//    [self.webView loadRequest:[NSURLRequest requestWithURL:path]];
     
 //    //实例化 bridge
-    _webViewBridge = [WKWebViewJavascriptBridge bridgeForWebView:self.webView];
-    [_webViewBridge setWebViewDelegate:self];
+//    _webViewBridge = [WKWebViewJavascriptBridge bridgeForWebView:self.webView];
+//    [_webViewBridge setWebViewDelegate:self];
 
     
 }
@@ -60,6 +62,7 @@
     [self.webView loadHTMLString:localHtml baseURL:fileURL];
     
     self.webView.UIDelegate = self;
+    self.webView.navigationDelegate = self;
     [self.view addSubview:self.webView];
 }
 
@@ -87,6 +90,8 @@
         
         self.title = (NSString *)result;
     }];
+    
+    
 }
 
 -(void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {

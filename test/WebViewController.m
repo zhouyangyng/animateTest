@@ -8,6 +8,7 @@
 
 #import "WebViewController.h"
 #import <JavaScriptCore/JavaScriptCore.h>
+#import <WebViewJavascriptBridge.h>
 
 @interface WebViewController ()<UIWebViewDelegate>
 
@@ -16,6 +17,8 @@
 @property (nonatomic, strong) JSContext *context;
 
 @property (nonatomic, strong) UIButton *jsButton;
+
+@property (nonatomic, strong) WebViewJavascriptBridge *bridge;
 
 @end
 
@@ -28,19 +31,17 @@
     
     [self.view addSubview:self.webView];
     
-    [self.view addSubview:self.jsButton];
-    
     //加载html
     NSURL *path = [[NSBundle mainBundle] URLForResource:@"demo.html" withExtension:nil];
     
     [self.webView loadRequest:[NSURLRequest requestWithURL:path]];
     
-//    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://m.jd.com"]]];
+//    self.bridge = [WebViewJavascriptBridge bridgeForWebView:self.webView];
+//    [self.bridge setWebViewDelegate:self];
     
-    
-    
-    
+    [self regesterLocationFunction];
 }
+
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     
@@ -83,6 +84,23 @@
         [weakSelf.navigationController presentViewController:alert animated:YES completion:nil];
     };
     
+    self.context[@"scanClick"] = ^() {
+        
+        //获取参数
+        NSArray *argArray = [JSContext currentArguments];
+        NSMutableString *mStr = [NSMutableString string];
+        
+        for (JSValue *value in argArray) {
+            
+            NSLog(@"%@", value.toString);
+            [mStr appendString:value.toString];
+        }
+      
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"扫一扫" message:mStr preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+        [alert addAction:[UIAlertAction actionWithTitle:@"Confirm" style:UIAlertActionStyleDefault handler:nil]];
+        [weakSelf.navigationController presentViewController:alert animated:YES completion:nil];
+    };
     
     //调用OC，打开APP
     self.context[@"openCFZX"] = ^() {
@@ -98,6 +116,8 @@
     };
     
 }
+ 
+
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     
@@ -109,6 +129,13 @@
     return YES;
 }
 
+- (void)regesterLocationFunction {
+    
+    [self.bridge registerHandler:@"locationClick" handler:^(id data, WVJBResponseCallback responseCallback) {
+        
+        NSLog(@"%@", data);
+    }];
+}
 
 //点击按钮，调用JS
 - (void)buttonClick {

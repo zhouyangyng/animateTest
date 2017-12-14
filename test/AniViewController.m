@@ -34,75 +34,81 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.imgView];
     
-    [self.view addSubview:self.aniButton];
+//    [self.view addSubview:self.aniButton];
     
     
     //手势
     UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeGestureRecognizerClick:)];
-    
     swipe.direction = UISwipeGestureRecognizerDirectionLeft;
-    
     [self.view addGestureRecognizer:swipe];
     
+    UISwipeGestureRecognizer *backSwipe = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeGestureRecognizerClick:)];
+    backSwipe.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:backSwipe];
 }
 
 - (void)swipeGestureRecognizerClick:(UISwipeGestureRecognizer *)swipe {
     
-    CATransition *transition = [[CATransition alloc]init];
+    if (swipe.direction == UISwipeGestureRecognizerDirectionLeft) {
+        
+        CATransition *transition = [[CATransition alloc]init];
+        
+        /* The name of the transition. Current legal transition types include
+         * `fade', `moveIn', `push' and `reveal'. Defaults to `fade'. */
+        /**
+         *   1.#define定义的常量
+         kCATransitionFade   交叉淡化过渡  默认
+         kCATransitionMoveIn 新视图移到旧视图上面,覆盖原图
+         kCATransitionPush   新视图把旧视图推出去  ,推出
+         kCATransitionReveal 将旧视图移开,显示下面的新视图 ,从底部显示
+         
+         2.用字符串表示
+         pageCurl            向上翻一页
+         pageUnCurl          向下翻一页
+         rippleEffect        滴水效果
+         suckEffect          收缩效果，如一块布被抽走
+         cube                立方体效果
+         oglFlip             上下翻转效果
+         注意：
+         还有很多私有API效果，使用的时候要小心，可能会导致app审核不被通过（）
+         fade     //交叉淡化过渡(不支持过渡方向)
+         push     //新视图把旧视图推出去
+         moveIn   //新视图移到旧视图上面
+         reveal   //将旧视图移开,显示下面的新视图
+         cube     //立方体翻滚效果
+         oglFlip  //上下左右翻转效果
+         suckEffect   //收缩效果，如一块布被抽走(不支持过渡方向)
+         rippleEffect //滴水效果(不支持过渡方向)
+         pageCurl     //向上翻页效果
+         pageUnCurl   //向下翻页效果
+         cameraIrisHollowOpen  //相机镜头打开效果(不支持过渡方向)
+         cameraIrisHollowClose //相机镜头关上效果(不支持过渡方向)
+         
+         */
+        //设置动画类型，注意对于苹果官方没有公开的动画类型智能使用字符串，并没有对应的常量意义
+        // transaction.type=@"pageCurl";//控制图片的滑动类型
+        
+        transition.type = @"cube";
+        
+        transition.subtype = kCATransitionFromRight;
+        
+        transition.duration = 0.8;
+        
+        self.imgView.image = [self trasitionImage];
+        
+        [self.imgView.layer addAnimation:transition forKey:@"trasition"];
+    }else {
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    }
     
-    /* The name of the transition. Current legal transition types include
-     * `fade', `moveIn', `push' and `reveal'. Defaults to `fade'. */
-    /**
-     *   1.#define定义的常量
-     kCATransitionFade   交叉淡化过渡  默认
-     kCATransitionMoveIn 新视图移到旧视图上面,覆盖原图
-     kCATransitionPush   新视图把旧视图推出去  ,推出
-     kCATransitionReveal 将旧视图移开,显示下面的新视图 ,从底部显示
-     
-     2.用字符串表示
-     pageCurl            向上翻一页
-     pageUnCurl          向下翻一页
-     rippleEffect        滴水效果
-     suckEffect          收缩效果，如一块布被抽走
-     cube                立方体效果
-     oglFlip             上下翻转效果
-     注意：
-     还有很多私有API效果，使用的时候要小心，可能会导致app审核不被通过（）
-     fade     //交叉淡化过渡(不支持过渡方向)
-     push     //新视图把旧视图推出去
-     moveIn   //新视图移到旧视图上面
-     reveal   //将旧视图移开,显示下面的新视图
-     cube     //立方体翻滚效果
-     oglFlip  //上下左右翻转效果
-     suckEffect   //收缩效果，如一块布被抽走(不支持过渡方向)
-     rippleEffect //滴水效果(不支持过渡方向)
-     pageCurl     //向上翻页效果
-     pageUnCurl   //向下翻页效果
-     cameraIrisHollowOpen  //相机镜头打开效果(不支持过渡方向)
-     cameraIrisHollowClose //相机镜头关上效果(不支持过渡方向)
-     
-     */
-    //设置动画类型，注意对于苹果官方没有公开的动画类型智能使用字符串，并没有对应的常量意义
-    // transaction.type=@"pageCurl";//控制图片的滑动类型
     
-    transition.type = @"cube";
-    
-    transition.subtype = kCATransitionFromRight;
-    
-    transition.duration = 0.8;
-    
-    self.imgView.image = [self trasitionImage];
-    
-    [self.imgView.layer addAnimation:transition forKey:@"trasition"];
     
 }
 
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    
-    [self.navigationController setNavigationBarHidden:!self.navigationController.navigationBarHidden animated:YES];
-}
 
 - (UIImage *)trasitionImage {
     
@@ -138,6 +144,8 @@
         _imgView = [[UIImageView alloc]initWithFrame:self.view.bounds];
         _imgView.image = [UIImage imageNamed:@"0"];
         _imgView.contentMode = UIViewContentModeScaleAspectFill;
+        _imgView.layer.masksToBounds = YES;
+        _imgView.userInteractionEnabled = YES;
     }
     return _imgView;
 }

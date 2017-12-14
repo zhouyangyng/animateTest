@@ -28,7 +28,7 @@
     //
     //    [self.view addSubview:v];
     //
-    [self.view.layer addSublayer:self.petalLayer];
+//    [self.view.layer addSublayer:self.petalLayer];
     
 }
 
@@ -50,7 +50,7 @@
     //设置起始点
     [path moveToPoint:self.petalLayer.position];
     //画曲线的方法addCurveToPoint:终点 controlPoint1:<#(CGPoint)#> controlPoint2:<#(CGPoint)#>
-    [path addCurveToPoint:endPoint controlPoint1:CGPointMake(50, 150) controlPoint2:CGPointMake(300, 250)];
+    [path addCurveToPoint:endPoint controlPoint1:CGPointMake(50, 150) controlPoint2:CGPointMake(300, 300)];
     keyFrame.path = path.CGPath;
     //节奏动画不是匀速 kCAAnimationPaced
     keyFrame.calculationMode = kCAAnimationCubicPaced;
@@ -69,7 +69,14 @@
     
     ani.fromValue = @(M_PI_4);
     
-    ani.toValue = @(2 * M_PI);
+    //不同的 toValue
+    NSDate *date = [NSDate date];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    formatter.dateFormat = @"ss";
+    NSString *sec = [formatter stringFromDate:date];
+    NSString *lastStr = [sec substringFromIndex:1];
+    
+    ani.toValue = @(2 * M_PI + lastStr.integerValue/5.0 * M_PI  );
     
     ani.repeatCount = MAXFLOAT;
     
@@ -99,6 +106,20 @@
  */
 - (void)animationGroup:(CGPoint)endPoint {
     
+    //创建layer
+    CALayer *petalLayer = [CALayer layer];
+    
+    petalLayer.position = CGPointMake(self.view.center.x, 50);
+    
+    UIImage *img = [UIImage imageNamed:@"petal"];
+    
+    petalLayer.bounds =  CGRectMake(0, 0, img.size.width, img.size.height);
+    
+    petalLayer.contents = (id)img.CGImage;
+    
+    [self.view.layer addSublayer:petalLayer];
+    
+    
     CAAnimationGroup *group = [CAAnimationGroup animation];
     
     group.animations = @[[self move:endPoint], [self rotation], [self moveToBig]];
@@ -110,7 +131,7 @@
     group.fillMode = kCAFillModeBoth;
     
     //添加到 花瓣layer
-    [self.petalLayer addAnimation:group forKey:@""];
+    [petalLayer addAnimation:group forKey:@""];
 }
 
 - (CALayer *)petalLayer {

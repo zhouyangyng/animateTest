@@ -24,6 +24,7 @@
 		89A642361F4A786C008BFD1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89A642351F4A786C008BFD1C /* Assets.xcassets */; };
 		89A642391F4A786C008BFD1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89A642371F4A786C008BFD1C /* LaunchScreen.storyboard */; };
 		89A642421F4A7F3D008BFD1C /* MyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A642411F4A7F3D008BFD1C /* MyView.m */; };
+		89BC7C261FDE143500CAAA2D /* MyAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BC7C251FDE143500CAAA2D /* MyAlertController.m */; };
 		89D3953C1FB538DE00B85C7C /* FirstWaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D3953B1FB538DE00B85C7C /* FirstWaveView.m */; };
 		89D3953F1FB554F800B85C7C /* SecondWaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D3953E1FB554F800B85C7C /* SecondWaveView.m */; };
 /* End PBXBuildFile section */
@@ -60,6 +61,8 @@
 		89A6423A1F4A786C008BFD1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89A642401F4A7F3D008BFD1C /* MyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyView.h; sourceTree = "<group>"; };
 		89A642411F4A7F3D008BFD1C /* MyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyView.m; sourceTree = "<group>"; };
+		89BC7C241FDE143500CAAA2D /* MyAlertController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyAlertController.h; sourceTree = "<group>"; };
+		89BC7C251FDE143500CAAA2D /* MyAlertController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyAlertController.m; sourceTree = "<group>"; };
 		89D3953A1FB538DE00B85C7C /* FirstWaveView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstWaveView.h; sourceTree = "<group>"; };
 		89D3953B1FB538DE00B85C7C /* FirstWaveView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstWaveView.m; sourceTree = "<group>"; };
 		89D3953D1FB554F800B85C7C /* SecondWaveView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondWaveView.h; sourceTree = "<group>"; };
@@ -136,6 +139,8 @@
 				897D0F771FAC1845003D5C3C /* AniPushViewController.m */,
 				897D0F791FAC31FB003D5C3C /* AniViewTrasition.h */,
 				897D0F7A1FAC31FB003D5C3C /* AniViewTrasition.m */,
+				89BC7C241FDE143500CAAA2D /* MyAlertController.h */,
+				89BC7C251FDE143500CAAA2D /* MyAlertController.m */,
 				89A642401F4A7F3D008BFD1C /* MyView.h */,
 				89A642411F4A7F3D008BFD1C /* MyView.m */,
 				89A642321F4A786C008BFD1C /* Main.storyboard */,
@@ -297,6 +302,7 @@
 				89D3953F1FB554F800B85C7C /* SecondWaveView.m in Sources */,
 				893427121F53E44C00474336 /* WKViewController.m in Sources */,
 				39A7DB821FB6A40F000B6E74 /* PetalViewController.m in Sources */,
+				89BC7C261FDE143500CAAA2D /* MyAlertController.m in Sources */,
 				8972E50C1FB443590017FCA1 /* WaveLayerController.m in Sources */,
 				897D0F781FAC1845003D5C3C /* AniPushViewController.m in Sources */,
 				897D0F7E1FAC6023003D5C3C /* UIView+anchorPoint.m in Sources */,

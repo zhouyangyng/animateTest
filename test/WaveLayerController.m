@@ -52,14 +52,14 @@
     
     self.firstView = [[FirstWaveView alloc]initWithFrame:CGRectMake(0, -20, self.view.bounds.size.width, 300)];
     self.firstView.alpha = 0.7;
-//    [self.view addSubview:self.firstView];
+    [self.view addSubview:self.firstView];
     
     self.secondView = [[SecondWaveView alloc]initWithFrame:CGRectMake(0, -20, self.view.bounds.size.width, 300)];
     self.secondView.alpha = 0.7;
     [self.view addSubview:self.secondView];
     
     //定时  振荡
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(addShakeAnimation) userInfo:nil repeats:YES];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(addShakeAnimation) userInfo:nil repeats:YES];
     
     [self addBackGesture];
 }
@@ -69,8 +69,8 @@
     
     [UIView animateWithDuration:1.5 animations:^{
         
-        self.firstView.transform = CGAffineTransformMakeTranslation(0, 20);
-        self.secondView.transform = CGAffineTransformMakeTranslation(0, 20);
+        self.firstView.transform = CGAffineTransformMakeTranslation(0, 12);
+        self.secondView.transform = CGAffineTransformMakeTranslation(0, 12);
     } completion:^(BOOL finished) {
         
         [UIView animateWithDuration:1.5 animations:^{

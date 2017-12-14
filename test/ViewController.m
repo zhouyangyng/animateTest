@@ -30,10 +30,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.tableView];
     
-    self.nameArray = @[@"花瓣掉落",@"立体旋转", @"波浪", @"UIWebView", @"WKWebView"];
-    self.vcArray = @[@"PetalViewController", @"AniViewController", @"WaveLayerController", @"WebViewController", @"WKViewController"];
+    self.nameArray = @[@"花瓣掉落",@"立体旋转", @"波浪", @"UIWebView", @"WKWebView", @"UIAlertController"];
+    self.vcArray = @[@"PetalViewController", @"AniViewController", @"WaveLayerController", @"WebViewController", @"WKViewController", @"MyAlertController"];
+    
+    
+    
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
