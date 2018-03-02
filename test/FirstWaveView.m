@@ -96,6 +96,17 @@
     CGPathRelease(path);
 }
 
+-(void)removeFromSuperview {
+    
+    [super removeFromSuperview];
+    [self.displayLink invalidate];
+    self.displayLink = nil;
+}
+
+-(void)dealloc {
+    NSLog(@"%s", __func__);
+}
+
 @end
 
 

@@ -45,6 +45,16 @@
     [self.navigationController setNavigationBarHidden:NO];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    [self.timer invalidate];
+    self.timer = nil;
+    
+    [self.navigationController setNavigationBarHidden:NO];
+    NSLog(@"%s", __func__);
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

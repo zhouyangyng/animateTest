@@ -10,6 +10,7 @@
 		048341A2118FDE41CA716457 /* libPods-test.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D13FEEA66688B08EC118FB /* libPods-test.a */; };
 		39A7DB821FB6A40F000B6E74 /* PetalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A7DB811FB6A40F000B6E74 /* PetalViewController.m */; };
 		893427121F53E44C00474336 /* WKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 893427111F53E44C00474336 /* WKViewController.m */; };
+		8953DD912043CFAC00C6FA20 /* TestYYWebImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8953DD902043CFAC00C6FA20 /* TestYYWebImageController.m */; };
 		895E92421F4EAE50003D2C0D /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 895E92411F4EAE50003D2C0D /* WebViewController.m */; };
 		895E92441F4EAEDF003D2C0D /* demo.html in Resources */ = {isa = PBXBuildFile; fileRef = 895E92431F4EAEDF003D2C0D /* demo.html */; };
 		8972E50C1FB443590017FCA1 /* WaveLayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8972E50B1FB443590017FCA1 /* WaveLayerController.m */; };
@@ -27,6 +28,10 @@
 		89BC7C261FDE143500CAAA2D /* MyAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BC7C251FDE143500CAAA2D /* MyAlertController.m */; };
 		89D3953C1FB538DE00B85C7C /* FirstWaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D3953B1FB538DE00B85C7C /* FirstWaveView.m */; };
 		89D3953F1FB554F800B85C7C /* SecondWaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D3953E1FB554F800B85C7C /* SecondWaveView.m */; };
+		89F1865D2047DEFB0002052B /* FMDBTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F1865C2047DEFB0002052B /* FMDBTestController.m */; };
+		89F186602047DF330002052B /* DataBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F1865F2047DF330002052B /* DataBaseManager.m */; };
+		89F186642047DFF10002052B /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F186632047DFF10002052B /* Person.m */; };
+		89F186672047DFFA0002052B /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F186662047DFFA0002052B /* Car.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +41,8 @@
 		39A7DB811FB6A40F000B6E74 /* PetalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PetalViewController.m; sourceTree = "<group>"; };
 		893427101F53E44C00474336 /* WKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKViewController.h; sourceTree = "<group>"; };
 		893427111F53E44C00474336 /* WKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKViewController.m; sourceTree = "<group>"; };
+		8953DD8F2043CFAC00C6FA20 /* TestYYWebImageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestYYWebImageController.h; sourceTree = "<group>"; };
+		8953DD902043CFAC00C6FA20 /* TestYYWebImageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestYYWebImageController.m; sourceTree = "<group>"; };
 		895E92401F4EAE50003D2C0D /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		895E92411F4EAE50003D2C0D /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		895E92431F4EAEDF003D2C0D /* demo.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = demo.html; sourceTree = "<group>"; };
@@ -67,6 +74,14 @@
 		89D3953B1FB538DE00B85C7C /* FirstWaveView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstWaveView.m; sourceTree = "<group>"; };
 		89D3953D1FB554F800B85C7C /* SecondWaveView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondWaveView.h; sourceTree = "<group>"; };
 		89D3953E1FB554F800B85C7C /* SecondWaveView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondWaveView.m; sourceTree = "<group>"; };
+		89F1865B2047DEFB0002052B /* FMDBTestController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMDBTestController.h; sourceTree = "<group>"; };
+		89F1865C2047DEFB0002052B /* FMDBTestController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMDBTestController.m; sourceTree = "<group>"; };
+		89F1865E2047DF330002052B /* DataBaseManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataBaseManager.h; sourceTree = "<group>"; };
+		89F1865F2047DF330002052B /* DataBaseManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataBaseManager.m; sourceTree = "<group>"; };
+		89F186622047DFF10002052B /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		89F186632047DFF10002052B /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		89F186652047DFFA0002052B /* Car.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
+		89F186662047DFFA0002052B /* Car.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Car.m; sourceTree = "<group>"; };
 		C7174FE7DBEAFCF3231413CA /* Pods-test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-test/Pods-test.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,6 +135,7 @@
 		89A642281F4A786C008BFD1C /* test */ = {
 			isa = PBXGroup;
 			children = (
+				89F186612047DF640002052B /* FMDBTest */,
 				89D395391FB538CB00B85C7C /* View */,
 				89A6422C1F4A786C008BFD1C /* AppDelegate.h */,
 				89A6422D1F4A786C008BFD1C /* AppDelegate.m */,
@@ -141,6 +157,8 @@
 				897D0F7A1FAC31FB003D5C3C /* AniViewTrasition.m */,
 				89BC7C241FDE143500CAAA2D /* MyAlertController.h */,
 				89BC7C251FDE143500CAAA2D /* MyAlertController.m */,
+				8953DD8F2043CFAC00C6FA20 /* TestYYWebImageController.h */,
+				8953DD902043CFAC00C6FA20 /* TestYYWebImageController.m */,
 				89A642401F4A7F3D008BFD1C /* MyView.h */,
 				89A642411F4A7F3D008BFD1C /* MyView.m */,
 				89A642321F4A786C008BFD1C /* Main.storyboard */,
@@ -172,6 +190,21 @@
 				89D3953E1FB554F800B85C7C /* SecondWaveView.m */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		89F186612047DF640002052B /* FMDBTest */ = {
+			isa = PBXGroup;
+			children = (
+				89F1865B2047DEFB0002052B /* FMDBTestController.h */,
+				89F1865C2047DEFB0002052B /* FMDBTestController.m */,
+				89F1865E2047DF330002052B /* DataBaseManager.h */,
+				89F1865F2047DF330002052B /* DataBaseManager.m */,
+				89F186622047DFF10002052B /* Person.h */,
+				89F186632047DFF10002052B /* Person.m */,
+				89F186652047DFFA0002052B /* Car.h */,
+				89F186662047DFFA0002052B /* Car.m */,
+			);
+			path = FMDBTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,13 +285,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-test-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CEF66E46BC865C3313FA7617 /* [CP] Embed Pods Frameworks */ = {
@@ -300,16 +336,21 @@
 			files = (
 				89D3953C1FB538DE00B85C7C /* FirstWaveView.m in Sources */,
 				89D3953F1FB554F800B85C7C /* SecondWaveView.m in Sources */,
+				89F186642047DFF10002052B /* Person.m in Sources */,
 				893427121F53E44C00474336 /* WKViewController.m in Sources */,
+				89F1865D2047DEFB0002052B /* FMDBTestController.m in Sources */,
 				39A7DB821FB6A40F000B6E74 /* PetalViewController.m in Sources */,
 				89BC7C261FDE143500CAAA2D /* MyAlertController.m in Sources */,
 				8972E50C1FB443590017FCA1 /* WaveLayerController.m in Sources */,
 				897D0F781FAC1845003D5C3C /* AniPushViewController.m in Sources */,
+				89F186602047DF330002052B /* DataBaseManager.m in Sources */,
+				89F186672047DFFA0002052B /* Car.m in Sources */,
 				897D0F7E1FAC6023003D5C3C /* UIView+anchorPoint.m in Sources */,
 				89A642421F4A7F3D008BFD1C /* MyView.m in Sources */,
 				895E92421F4EAE50003D2C0D /* WebViewController.m in Sources */,
 				89A642311F4A786C008BFD1C /* ViewController.m in Sources */,
 				89A6422E1F4A786C008BFD1C /* AppDelegate.m in Sources */,
+				8953DD912043CFAC00C6FA20 /* TestYYWebImageController.m in Sources */,
 				897D0F7B1FAC31FB003D5C3C /* AniViewTrasition.m in Sources */,
 				89A6422B1F4A786C008BFD1C /* main.m in Sources */,
 				897D0F751FABF4A3003D5C3C /* AniViewController.m in Sources */,

@@ -38,6 +38,10 @@
     
 }
 
+-(void)dealloc {
+    
+    NSLog(@"%s", __func__);
+}
 
 /**
  掉落的动画

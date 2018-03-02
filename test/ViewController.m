@@ -33,8 +33,8 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.tableView];
     
-    self.nameArray = @[@"花瓣掉落",@"立体旋转", @"波浪", @"UIWebView", @"WKWebView", @"UIAlertController"];
-    self.vcArray = @[@"PetalViewController", @"AniViewController", @"WaveLayerController", @"WebViewController", @"WKViewController", @"MyAlertController"];
+    self.nameArray = @[@"花瓣掉落",@"立体旋转", @"波浪", @"UIWebView", @"WKWebView", @"UIAlertController", @"测试YYWebImage", @"测试FMDB"];
+    self.vcArray = @[@"PetalViewController", @"AniViewController", @"WaveLayerController", @"WebViewController", @"WKViewController", @"MyAlertController", @"TestYYWebImageController", @"FMDBTestController"];
     
     
     

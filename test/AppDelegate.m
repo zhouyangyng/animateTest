@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import <Bugly/Bugly.h>
+#import <execinfo.h>
+#import <signal.h>
 
 @interface AppDelegate ()
 
@@ -17,9 +20,41 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [Bugly startWithAppId:@"d14e4ddce8"];
+    
+//    InstallSignalHandler();
+    
     return YES;
 }
 
+//void InstallSignalHandler(void)
+//{
+//    signal(SIGHUP, SignalExceptionHandler);
+//    signal(SIGINT, SignalExceptionHandler);
+//    signal(SIGQUIT, SignalExceptionHandler);
+//
+//    signal(SIGABRT, SignalExceptionHandler);
+//    signal(SIGILL, SignalExceptionHandler);
+//    signal(SIGSEGV, SignalExceptionHandler);
+//    signal(SIGFPE, SignalExceptionHandler);
+//    signal(SIGBUS, SignalExceptionHandler);
+//    signal(SIGPIPE, SignalExceptionHandler);
+//}
+//
+//void SignalExceptionHandler(int signal)
+//{
+//    NSMutableString *mstr = [[NSMutableString alloc] init];
+//    [mstr appendString:@"Stack:\n"];
+//    void* callstack[128];
+//    int i, frames = backtrace(callstack, 128);
+//    char** strs = backtrace_symbols(callstack, frames);
+//    for (i = 0; i <frames; ++i) {
+//        [mstr appendFormat:@"%s\n", strs[i]];
+//    }
+//    [SignalHandler saveCreash:mstr];
+//
+//}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

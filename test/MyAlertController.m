@@ -14,6 +14,8 @@
 
 @property (nonatomic, strong) UIButton *btn;
 
+@property (nonatomic, strong) NSPort *emptyPort;
+
 @end
 
 @implementation MyAlertController
@@ -29,7 +31,71 @@
         make.centerY.equalTo(self.view);
     }];
     
+    //先走主线程，再开3个子线程，3个顺序随机
+    dispatch_queue_t my_queue1 = dispatch_queue_create("my_queue", DISPATCH_QUEUE_CONCURRENT);
+    for (int i = 0; i < 3; i++) {
+        dispatch_async(my_queue1, ^{
+            NSLog(@"task1-%d-%@", i, [NSThread currentThread]);
+        });
+    }
     
+    NSLog(@"task1-%@", [NSThread currentThread]);
+    
+    
+    
+    
+//    [self memoryTest];
+    
+    
+}
+
+- (void)synchronizedTest {
+    
+    NSObject *obj = [[NSObject alloc]init];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        @synchronized(obj){
+            
+            NSLog(@"线程同步操作 111  开始");
+            sleep(2);
+            NSLog(@"线程同步操作 111  结束");
+        }
+    });
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        sleep(1);
+        //        NSLog(@"线程22");
+        @synchronized(obj) {
+            NSLog(@"线程同步操作 222 ");
+        }
+    });
+}
+
+- (void)memoryTest {
+    for (int i = 0; i < 100000; ++i) {
+        NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(run) object:nil];
+        [thread start];
+//        [self performSelector:@selector(stopThread) onThread:thread withObject:nil waitUntilDone:YES];
+    }
+}
+
+- (void)stopThread {
+    CFRunLoopStop(CFRunLoopGetCurrent());
+    NSThread *thread = [NSThread currentThread];
+    [thread cancel];
+}
+
+- (void)run {
+    @autoreleasepool {
+        NSLog(@"current thread = %@", [NSThread currentThread]);
+        NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
+        if (!self.emptyPort) {
+            self.emptyPort = [NSMachPort port];
+        }
+        [runLoop addPort:self.emptyPort forMode:NSDefaultRunLoopMode];
+        [runLoop runMode:NSRunLoopCommonModes beforeDate:[NSDate distantFuture]];
+    }
 }
 
 //点击按钮 弹窗
@@ -88,6 +154,11 @@
     [alert addAction:ignoreAction];
     
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+-(void)dealloc {
+    
+    NSLog(@"%s", __func__);
 }
 
 -(UIButton *)btn{

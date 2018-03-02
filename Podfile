@@ -13,5 +13,12 @@ target 'test' do
 
   pod 'WebViewJavascriptBridge', '~> 5.0'
 
+  pod 'Bugly'
+  
+  pod 'MLeaksFinder'
+
+  pod 'YYWebImage'
+  
+  pod 'FMDB'
 
 end
