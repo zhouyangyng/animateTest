@@ -47,7 +47,7 @@ static DataBaseManager *_instance;
     return _instance;
 }
 
--(void)createTableWithSQL:(NSString *)sql {
+-(void)createTableWithSQL:(NSString *)sql finishedBlock:(void (^)(BOOL))finishedBlock {
     
     [self.queue inDatabase:^(FMDatabase * _Nonnull db) {
        
@@ -57,6 +57,8 @@ static DataBaseManager *_instance;
         }else {
             NSLog(@"创建表失败");
         }
+        
+        finishedBlock(result);
     }];
 }
 
@@ -113,8 +115,8 @@ static DataBaseManager *_instance;
         FMResultSet *res = [db executeQuery:[NSString stringWithFormat:@"SELECT * FROM car where own_id = %@", person.ID]];
         
         while ([res next]) {
-            if (maxID.integerValue < [res stringForColumn:@"car_id"].integerValue) {
-                maxID = @([res stringForColumn:@"car_id"].integerValue);
+            if (maxID.integerValue <= [res stringForColumn:@"car_id"].integerValue) {
+                maxID = @([res stringForColumn:@"car_id"].integerValue + 1);
             }
         }
         //插入car数据

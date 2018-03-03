@@ -8,6 +8,7 @@
 
 #import "FMDBTestController.h"
 #import "DataBaseManager.h"
+#import "PersonGarageController.h"
 
 @interface FMDBTestController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -27,25 +28,43 @@
     //设置界面相关
     [self setup];
     
-    
+    [self initialDataBase];
     
 }
 
 - (void)initialDataBase {
     
+    BOOL res1 = [[NSUserDefaults standardUserDefaults] boolForKey:@"personRes"];
+    
+    BOOL res2 = [[NSUserDefaults standardUserDefaults] boolForKey:@"carRes"];
+    
+    if (res1 && res2) {
+        //表已经存在，取出数据
+        
+        self.dataArray = [[DataBaseManager sharedManager] getAllPerson];
+        [self.tableView reloadData];
+        return;
+    }
+    
     //创建person、car表
     NSString *personSql = @"create table 'person' ('id' integer primary key autoincrement not null, 'person_id' varchar(255), 'person_name' varchar(255), 'person_age' varchar(255), 'person_number' varchar(255))";
     NSString *carSql = @"CREATE TABLE 'car' ('id' INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 'own_id' VARCHAR(255), 'car_id' VARCHAR(255), 'car_brand' VARCHAR(255), 'car_price' VARCHAR(255))";
     
-    [[DataBaseManager sharedManager] createTableWithSQL:personSql];
-    [[DataBaseManager sharedManager] createTableWithSQL:carSql];
+    
+    [[DataBaseManager sharedManager] createTableWithSQL:personSql finishedBlock:^(BOOL result) {
+        
+        [[NSUserDefaults standardUserDefaults] setBool:result forKey:@"personRes"];
+    }];
+    [[DataBaseManager sharedManager] createTableWithSQL:carSql finishedBlock:^(BOOL result) {
+        [[NSUserDefaults standardUserDefaults] setBool:result forKey:@"carRes"];
+    }];
 }
+
 
 - (void)setup {
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addPersonToTable)];
     [self.view addSubview:self.tableView];
-    
 }
 
 //点击 添加一个person
@@ -75,6 +94,32 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     return self.dataArray.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"personCell"];
+    
+    if (!cell) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"personCell"];
+    }
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    //person数据
+    Person *person = self.dataArray[indexPath.row];
+    
+    cell.textLabel.text = person.name;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"age: %@", person.age];
+    
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    PersonGarageController *vc = [[PersonGarageController alloc]init];
+    Person *per = self.dataArray[indexPath.row];
+    vc.person = per;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (UITableView *)tableView {

@@ -21,11 +21,10 @@
  */
 + (instancetype)sharedManager;
 
-
 /**
  * 创建 表
  */
-- (void)createTableWithSQL:(NSString *)sql;
+- (void)createTableWithSQL:(NSString *)sql finishedBlock:(void(^)(BOOL result))finishedBlock;
 
 /**
  * 删除 表

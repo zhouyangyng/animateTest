@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		048341A2118FDE41CA716457 /* libPods-test.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D13FEEA66688B08EC118FB /* libPods-test.a */; };
+		39876171204A6F1D000F5AA4 /* PersonGarageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39876170204A6F1D000F5AA4 /* PersonGarageController.m */; };
 		39A7DB821FB6A40F000B6E74 /* PetalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A7DB811FB6A40F000B6E74 /* PetalViewController.m */; };
 		893427121F53E44C00474336 /* WKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 893427111F53E44C00474336 /* WKViewController.m */; };
 		8953DD912043CFAC00C6FA20 /* TestYYWebImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8953DD902043CFAC00C6FA20 /* TestYYWebImageController.m */; };
@@ -37,6 +38,8 @@
 /* Begin PBXFileReference section */
 		01D13FEEA66688B08EC118FB /* libPods-test.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-test.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B960D1604EBD9B6F14ADBA8 /* Pods-test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test.release.xcconfig"; path = "Pods/Target Support Files/Pods-test/Pods-test.release.xcconfig"; sourceTree = "<group>"; };
+		3987616F204A6F1D000F5AA4 /* PersonGarageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonGarageController.h; sourceTree = "<group>"; };
+		39876170204A6F1D000F5AA4 /* PersonGarageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonGarageController.m; sourceTree = "<group>"; };
 		39A7DB801FB6A40F000B6E74 /* PetalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PetalViewController.h; sourceTree = "<group>"; };
 		39A7DB811FB6A40F000B6E74 /* PetalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PetalViewController.m; sourceTree = "<group>"; };
 		893427101F53E44C00474336 /* WKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKViewController.h; sourceTree = "<group>"; };
@@ -197,6 +200,8 @@
 			children = (
 				89F1865B2047DEFB0002052B /* FMDBTestController.h */,
 				89F1865C2047DEFB0002052B /* FMDBTestController.m */,
+				3987616F204A6F1D000F5AA4 /* PersonGarageController.h */,
+				39876170204A6F1D000F5AA4 /* PersonGarageController.m */,
 				89F1865E2047DF330002052B /* DataBaseManager.h */,
 				89F1865F2047DF330002052B /* DataBaseManager.m */,
 				89F186622047DFF10002052B /* Person.h */,
@@ -340,6 +345,7 @@
 				893427121F53E44C00474336 /* WKViewController.m in Sources */,
 				89F1865D2047DEFB0002052B /* FMDBTestController.m in Sources */,
 				39A7DB821FB6A40F000B6E74 /* PetalViewController.m in Sources */,
+				39876171204A6F1D000F5AA4 /* PersonGarageController.m in Sources */,
 				89BC7C261FDE143500CAAA2D /* MyAlertController.m in Sources */,
 				8972E50C1FB443590017FCA1 /* WaveLayerController.m in Sources */,
 				897D0F781FAC1845003D5C3C /* AniPushViewController.m in Sources */,
