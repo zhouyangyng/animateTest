@@ -20,5 +20,11 @@ target 'test' do
   pod 'YYWebImage'
   
   pod 'FMDB'
+  
+  pod 'SDWebImage'
+  
+  pod 'YYWebImage'
+  
+  pod 'RestKit'
 
 end

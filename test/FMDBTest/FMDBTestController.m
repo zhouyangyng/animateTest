@@ -10,6 +10,8 @@
 #import "DataBaseManager.h"
 #import "PersonGarageController.h"
 
+#import "test-Swift.h"
+
 @interface FMDBTestController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -30,6 +32,11 @@
     
     [self initialDataBase];
     
+    TestSwiftController *vc = [[TestSwiftController alloc]init];
+    
+    [vc testPrint];
+    
+    [vc testType];
 }
 
 - (void)initialDataBase {

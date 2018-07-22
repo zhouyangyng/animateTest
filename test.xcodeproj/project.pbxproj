@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		048341A2118FDE41CA716457 /* libPods-test.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D13FEEA66688B08EC118FB /* libPods-test.a */; };
+		395B1854204C2B7900DBA55E /* NSArray+safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 395B1853204C2B7900DBA55E /* NSArray+safe.m */; };
+		395B1857204C2D2400DBA55E /* NSMutableArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 395B1856204C2D2400DBA55E /* NSMutableArray+Safe.m */; };
+		395B185C204C35AF00DBA55E /* TestSwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395B185B204C35AF00DBA55E /* TestSwiftController.swift */; };
+		3968808C20CCCDF100D079EB /* RESTKitTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3968808B20CCCDF100D079EB /* RESTKitTestController.m */; };
+		3968808F20CCD40500D079EB /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3968808E20CCD40500D079EB /* Factory.m */; };
 		39876171204A6F1D000F5AA4 /* PersonGarageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39876170204A6F1D000F5AA4 /* PersonGarageController.m */; };
 		39A7DB821FB6A40F000B6E74 /* PetalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A7DB811FB6A40F000B6E74 /* PetalViewController.m */; };
 		893427121F53E44C00474336 /* WKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 893427111F53E44C00474336 /* WKViewController.m */; };
@@ -38,6 +43,16 @@
 /* Begin PBXFileReference section */
 		01D13FEEA66688B08EC118FB /* libPods-test.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-test.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B960D1604EBD9B6F14ADBA8 /* Pods-test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test.release.xcconfig"; path = "Pods/Target Support Files/Pods-test/Pods-test.release.xcconfig"; sourceTree = "<group>"; };
+		395B1852204C2B7900DBA55E /* NSArray+safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+safe.h"; sourceTree = "<group>"; };
+		395B1853204C2B7900DBA55E /* NSArray+safe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+safe.m"; sourceTree = "<group>"; };
+		395B1855204C2D2400DBA55E /* NSMutableArray+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Safe.h"; sourceTree = "<group>"; };
+		395B1856204C2D2400DBA55E /* NSMutableArray+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Safe.m"; sourceTree = "<group>"; };
+		395B1858204C34E500DBA55E /* test-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "test-Bridging-Header.h"; sourceTree = "<group>"; };
+		395B185B204C35AF00DBA55E /* TestSwiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSwiftController.swift; sourceTree = "<group>"; };
+		3968808A20CCCDF100D079EB /* RESTKitTestController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RESTKitTestController.h; sourceTree = "<group>"; };
+		3968808B20CCCDF100D079EB /* RESTKitTestController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RESTKitTestController.m; sourceTree = "<group>"; };
+		3968808D20CCD40500D079EB /* Factory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Factory.h; sourceTree = "<group>"; };
+		3968808E20CCD40500D079EB /* Factory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Factory.m; sourceTree = "<group>"; };
 		3987616F204A6F1D000F5AA4 /* PersonGarageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonGarageController.h; sourceTree = "<group>"; };
 		39876170204A6F1D000F5AA4 /* PersonGarageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonGarageController.m; sourceTree = "<group>"; };
 		39A7DB801FB6A40F000B6E74 /* PetalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PetalViewController.h; sourceTree = "<group>"; };
@@ -100,6 +115,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		395B184E204C2A0000DBA55E /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				395B1855204C2D2400DBA55E /* NSMutableArray+Safe.h */,
+				395B1856204C2D2400DBA55E /* NSMutableArray+Safe.m */,
+				395B1852204C2B7900DBA55E /* NSArray+safe.h */,
+				395B1853204C2B7900DBA55E /* NSArray+safe.m */,
+				395B185B204C35AF00DBA55E /* TestSwiftController.swift */,
+				395B1858204C34E500DBA55E /* test-Bridging-Header.h */,
+			);
+			name = Tools;
+			sourceTree = "<group>";
+		};
+		3968808720CCCD8F00D079EB /* RESTtest */ = {
+			isa = PBXGroup;
+			children = (
+				3968808A20CCCDF100D079EB /* RESTKitTestController.h */,
+				3968808B20CCCDF100D079EB /* RESTKitTestController.m */,
+				3968808D20CCD40500D079EB /* Factory.h */,
+				3968808E20CCD40500D079EB /* Factory.m */,
+			);
+			path = RESTtest;
+			sourceTree = "<group>";
+		};
 		6F37236CC1B1CF58A382BDD9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +177,8 @@
 		89A642281F4A786C008BFD1C /* test */ = {
 			isa = PBXGroup;
 			children = (
+				3968808720CCCD8F00D079EB /* RESTtest */,
+				395B184E204C2A0000DBA55E /* Tools */,
 				89F186612047DF640002052B /* FMDBTest */,
 				89D395391FB538CB00B85C7C /* View */,
 				89A6422C1F4A786C008BFD1C /* AppDelegate.h */,
@@ -247,6 +288,7 @@
 					89A642251F4A786C008BFD1C = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = DYE92N7UZ8;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -339,12 +381,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				395B185C204C35AF00DBA55E /* TestSwiftController.swift in Sources */,
 				89D3953C1FB538DE00B85C7C /* FirstWaveView.m in Sources */,
 				89D3953F1FB554F800B85C7C /* SecondWaveView.m in Sources */,
 				89F186642047DFF10002052B /* Person.m in Sources */,
 				893427121F53E44C00474336 /* WKViewController.m in Sources */,
 				89F1865D2047DEFB0002052B /* FMDBTestController.m in Sources */,
 				39A7DB821FB6A40F000B6E74 /* PetalViewController.m in Sources */,
+				395B1854204C2B7900DBA55E /* NSArray+safe.m in Sources */,
 				39876171204A6F1D000F5AA4 /* PersonGarageController.m in Sources */,
 				89BC7C261FDE143500CAAA2D /* MyAlertController.m in Sources */,
 				8972E50C1FB443590017FCA1 /* WaveLayerController.m in Sources */,
@@ -352,9 +396,12 @@
 				89F186602047DF330002052B /* DataBaseManager.m in Sources */,
 				89F186672047DFFA0002052B /* Car.m in Sources */,
 				897D0F7E1FAC6023003D5C3C /* UIView+anchorPoint.m in Sources */,
+				395B1857204C2D2400DBA55E /* NSMutableArray+Safe.m in Sources */,
 				89A642421F4A7F3D008BFD1C /* MyView.m in Sources */,
+				3968808C20CCCDF100D079EB /* RESTKitTestController.m in Sources */,
 				895E92421F4EAE50003D2C0D /* WebViewController.m in Sources */,
 				89A642311F4A786C008BFD1C /* ViewController.m in Sources */,
+				3968808F20CCD40500D079EB /* Factory.m in Sources */,
 				89A6422E1F4A786C008BFD1C /* AppDelegate.m in Sources */,
 				8953DD912043CFAC00C6FA20 /* TestYYWebImageController.m in Sources */,
 				897D0F7B1FAC31FB003D5C3C /* AniViewTrasition.m in Sources */,
@@ -482,11 +529,15 @@
 			baseConfigurationReference = C7174FE7DBEAFCF3231413CA /* Pods-test.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = DYE92N7UZ8;
 				INFOPLIST_FILE = test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zhouy.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "test/test-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -495,11 +546,14 @@
 			baseConfigurationReference = 1B960D1604EBD9B6F14ADBA8 /* Pods-test.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = DYE92N7UZ8;
 				INFOPLIST_FILE = test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zhouy.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "test/test-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
