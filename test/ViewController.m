@@ -36,7 +36,8 @@
     self.nameArray = @[@"花瓣掉落",@"立体旋转", @"波浪", @"UIWebView", @"WKWebView", @"UIAlertController", @"测试YYWebImage", @"测试FMDB", @"测试RestKit"];
     self.vcArray = @[@"PetalViewController", @"AniViewController", @"WaveLayerController", @"WebViewController", @"WKViewController", @"MyAlertController", @"TestYYWebImageController", @"FMDBTestController", @"RESTKitTestController"];
     
-    
+    // 改
+    NSLog(@"11");
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
