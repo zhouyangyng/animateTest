@@ -23,6 +23,9 @@
     
     [Bugly startWithAppId:@"d14e4ddce8"];
     
+    // 改1
+    
+    
 //    InstallSignalHandler();
     
     return YES;
